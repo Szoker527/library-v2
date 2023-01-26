@@ -27,13 +27,33 @@ function Book(author, bookname) {
   // the constructor...
 }
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function showLibrary(array) {
+  const containerBook = document.querySelector("#displayBook");
+  removeAllChildNodes(containerBook);
+
+  for (let i = 0; i < array.length; i++) {
+    const li = document.createElement("li");
+    li.innerHTML = array[i].author + " - " + array[i].bookname;
+    containerBook.appendChild(li);
+  }
+
+  console.log(containerBook);
+}
+
 function addBookToLibrary() {
   const inputAuthor = document.getElementById("author").value;
   const inputBook = document.getElementById("book-name").value;
   const newBook = new Book(inputAuthor, inputBook);
   myLibrary.push(newBook);
+  showLibrary(myLibrary);
   console.log(inputAuthor, inputBook);
-  console.log(myLibrary[0]);
+  console.log(myLibrary);
 }
 
 sendBtn.addEventListener("click", addBookToLibrary);
