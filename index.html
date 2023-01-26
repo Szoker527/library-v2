@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>LIBRARY</h1>
-    <div class="container">
-        <p>HELLO WORLD</p>
-        <div class="inputs">
-            <label for="author">Author Name:</label>
-            <input type="text" name="" id="author">
-            <label for="book_name">Book Name:</label>
-            <input type="text" name="" id="book-name">
-            <button id="submit-button">Send</button>
-        </div>
+    <div class="top-button">
+      <button id="modal-button">Add Book!</button>
     </div>
-</body>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <label for="author">Author Name:</label>
+        <input type="text" name="" id="author" />
+        <label for="book_name">Book Name:</label>
+        <input type="text" name="" id="book-name" />
+        <button id="submit-button">Send</button>
+      </div>
+    </div>
+    <div class="container"></div>
+  </body>
 </html>

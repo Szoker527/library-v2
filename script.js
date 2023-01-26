@@ -1,37 +1,39 @@
-const send_btn = document.getElementById('submit-button');
+const sendBtn = document.getElementById("submit-button");
+const modal = document.getElementById("myModal");
+const modalBtn = document.getElementById("modal-button");
+const span = document.getElementsByClassName("close")[0];
 
+// Modal start
+modalBtn.onclick = function () {
+  modal.style.display = "block";
+};
 
-send_btn.addEventListener("click", addBookToLibrary)
+span.onclick = function () {
+  modal.style.display = "none";
+};
 
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+// Modal ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(author, bookname) {
-    this.author = author;
-    this.bookname = bookname;
+  this.author = author;
+  this.bookname = bookname;
   // the constructor...
 }
 
 function addBookToLibrary() {
-    let inputAuthor = document.getElementById('author').value;
-    let inputBook = document.getElementById('book-name').value; 
-    let newBook = new Book(inputAuthor, inputBook);
-    myLibrary.push(newBook);
-    console.log(inputAuthor, inputBook);
-    console.log(myLibrary[0]);
+  const inputAuthor = document.getElementById("author").value;
+  const inputBook = document.getElementById("book-name").value;
+  const newBook = new Book(inputAuthor, inputBook);
+  myLibrary.push(newBook);
+  console.log(inputAuthor, inputBook);
+  console.log(myLibrary[0]);
 }
+
+sendBtn.addEventListener("click", addBookToLibrary);
