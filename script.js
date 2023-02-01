@@ -45,9 +45,14 @@ function showLibrary(array) {
     const nameBook = document.createElement("li");
     const pagesBook = document.createElement("li");
     const statusBook = document.createElement("li");
+    const deleteBook = document.createElement("button");
+
+    deleteBook.setAttribute("data-index", `${i}`);
+    console.log(deleteBook.getAttribute("data-index"));
     nameAuthor.innerHTML = array[i].author;
     nameBook.innerHTML = array[i].bookname;
     pagesBook.innerHTML = array[i].pages;
+    deleteBook.innerHTML = "DELETE";
     if (array[i].status === true) {
       statusBook.innerHTML = "yes";
     } else {
@@ -58,8 +63,15 @@ function showLibrary(array) {
     displayBook.appendChild(nameBook);
     displayBook.appendChild(pagesBook);
     displayBook.appendChild(statusBook);
+    displayBook.appendChild(deleteBook);
+
+    deleteBook.addEventListener("click", () => {
+      const index = deleteBook.getAttribute("data-index");
+      myLibrary.splice(index, 1);
+      console.log(myLibrary);
+      showLibrary(myLibrary);
+    });
   }
-  console.log(containerBook);
 }
 
 function addBookToLibrary() {
