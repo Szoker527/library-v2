@@ -14,14 +14,18 @@
       <button id="modal-button">Add Book!</button>
     </div>
     <div id="myModal" class="modal">
-      <div class="modal-content">
+      <form class="modal-content" action="#" method="get">
         <span class="close">&times;</span>
         <label for="author">Author Name:</label>
         <input type="text" name="" id="author" />
-        <label for="book_name">Book Name:</label>
+        <label for="book-name">Book Name:</label>
         <input type="text" name="" id="book-name" />
+        <label for="book-pages">Amount of pages:</label>
+        <input type="text" name="" id="book-pages" />
+        <label for="book-status">Was it read?:</label>
+        <input type="checkbox" name="" id="book-status" />
         <button id="submit-button">Send</button>
-      </div>
+      </form>
     </div>
     <div class="container" id="displayBook">
       <div style="background-color: red">red</div>
