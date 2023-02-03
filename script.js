@@ -1,8 +1,11 @@
-const sendBtn = document.getElementById("submit-button");
 const modal = document.getElementById("myModal");
 const modalBtn = document.getElementById("modal-button");
 const span = document.getElementsByClassName("close")[0];
-
+const form = document.querySelector("#myForm");
+const authorInput = document.querySelector("#author");
+const bookInput = document.querySelector("#book-name");
+const pagesInput = document.querySelector("#book-pages");
+const statusInput = document.querySelector("#book-status");
 // Modal start
 modalBtn.onclick = function () {
   modal.style.display = "block";
@@ -18,9 +21,6 @@ window.onclick = function (event) {
   }
 };
 // Modal ends
-
-// Prevent submit on form
-sendBtn.addEventListener("click", (e) => e.preventDefault());
 
 const myLibrary = [];
 
@@ -96,21 +96,20 @@ function showLibrary(array) {
   }
 }
 
-// Creates objects from inputs and put them in array
-function addBookToLibrary() {
-  const inputAuthor = document.getElementById("author").value;
-  const inputBook = document.getElementById("book-name").value;
-  const inputPages = document.getElementById("book-pages").value;
-  const inputStatus = document.getElementById("book-status").checked;
-  const newBook = new Book(inputAuthor, inputBook, inputPages, inputStatus);
+function addBookToLibrary(author, book, pages, status) {
+  const newBook = new Book(author, book, pages, status);
   console.log(newBook.status);
   myLibrary.push(newBook);
   showLibrary(myLibrary);
-  console.log(inputAuthor, inputBook, inputPages, inputStatus);
-  if (inputStatus === "on") {
-    console.log("yes");
-  }
   console.log(myLibrary);
 }
 
-sendBtn.addEventListener("click", addBookToLibrary);
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // prevent the form from being submitted
+
+  const author = authorInput.value;
+  const book = bookInput.value;
+  const pages = pagesInput.value;
+  const status = statusInput.value;
+  addBookToLibrary(author, book, pages, status);
+});

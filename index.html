@@ -14,22 +14,19 @@
       <button id="modal-button">Add Book!</button>
     </div>
     <div id="myModal" class="modal">
-      <form class="modal-content" action="#" method="get">
+      <form class="modal-content" action="#" method="get" id="myForm">
         <span class="close">&times;</span>
         <label for="author">Author Name:</label>
-        <input type="text" name="" id="author" />
+        <input type="text" name="author" id="author" required />
         <label for="book-name">Book Name:</label>
-        <input type="text" name="" id="book-name" />
+        <input type="text" name="book-name" id="book-name" required />
         <label for="book-pages">Amount of pages:</label>
-        <input type="number" name="" id="book-pages" />
+        <input type="number" name="book-pages" id="book-pages" required />
         <label for="book-status">Was it read?:</label>
-        <input type="checkbox" name="" id="book-status" />
-        <button id="submit-button">Send</button>
+        <input type="radio" name="book-status" id="book-status" required />
+        <button type="submit" id="submit-button">Submit</button>
       </form>
     </div>
-    <div class="container" id="displayBook">
-      <div style="background-color: red">red</div>
-      <div style="background-color: blue">blue</div>
-    </div>
+    <div class="container" id="displayBook"></div>
   </body>
 </html>
