@@ -31,12 +31,23 @@ function Book(author, bookname, pages, status) {
   this.status = status;
 }
 
+Book.prototype = {
+  swap() {
+    if (this.status === false) {
+      this.status = true;
+    } else {
+      this.status = false;
+    }
+  },
+};
+
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
 
+// Creates book containers from objects in array and display them on page
 function showLibrary(array) {
   const containerBook = document.querySelector("#displayBook");
   removeAllChildNodes(containerBook);
@@ -48,13 +59,14 @@ function showLibrary(array) {
     const pagesBook = document.createElement("li");
     const statusBook = document.createElement("li");
     const deleteBook = document.createElement("button");
+    const toggleBook = document.createElement("button");
 
     deleteBook.setAttribute("data-index", `${i}`);
-    console.log(deleteBook.getAttribute("data-index"));
-    nameAuthor.innerHTML = array[i].author;
-    nameBook.innerHTML = array[i].bookname;
-    pagesBook.innerHTML = array[i].pages;
+    nameAuthor.innerHTML = array[i].author.toUpperCase();
+    nameBook.innerHTML = array[i].bookname.toUpperCase();
+    pagesBook.innerHTML = array[i].pages.toUpperCase();
     deleteBook.innerHTML = "DELETE";
+    toggleBook.innerHTML = "Toggle";
     if (array[i].status === true) {
       statusBook.innerHTML = "yes";
     } else {
@@ -66,6 +78,7 @@ function showLibrary(array) {
     displayBook.appendChild(pagesBook);
     displayBook.appendChild(statusBook);
     displayBook.appendChild(deleteBook);
+    displayBook.appendChild(toggleBook);
 
     deleteBook.addEventListener("click", () => {
       const index = deleteBook.getAttribute("data-index");
@@ -73,15 +86,24 @@ function showLibrary(array) {
       console.log(myLibrary);
       showLibrary(myLibrary);
     });
+
+    toggleBook.addEventListener("click", () => {
+      const index = deleteBook.getAttribute("data-index");
+      myLibrary[index].swap();
+      console.log(myLibrary[index]);
+      showLibrary(myLibrary);
+    });
   }
 }
 
+// Creates objects from inputs and put them in array
 function addBookToLibrary() {
   const inputAuthor = document.getElementById("author").value;
   const inputBook = document.getElementById("book-name").value;
   const inputPages = document.getElementById("book-pages").value;
   const inputStatus = document.getElementById("book-status").checked;
   const newBook = new Book(inputAuthor, inputBook, inputPages, inputStatus);
+  console.log(newBook.status);
   myLibrary.push(newBook);
   showLibrary(myLibrary);
   console.log(inputAuthor, inputBook, inputPages, inputStatus);
