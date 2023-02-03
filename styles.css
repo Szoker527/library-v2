@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Roboto-Slab";
+  src: url(/fonts/RobotoSlab-VariableFont_wght.ttf) format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +19,9 @@ body {
 h1 {
   text-align: center;
   grid-column: 1 / -1;
+  font-family: "Roboto-Slab";
+  font-weight: 600;
+  font-size: 65px;
 }
 
 .top-button {
