@@ -6,6 +6,7 @@ const authorInput = document.querySelector("#author");
 const bookInput = document.querySelector("#book-name");
 const pagesInput = document.querySelector("#book-pages");
 const statusInput = document.querySelector("#book-status");
+
 // Modal start
 modalBtn.onclick = function () {
   modal.style.display = "block";
@@ -57,26 +58,26 @@ function showLibrary(array) {
     const nameAuthor = document.createElement("li");
     const nameBook = document.createElement("li");
     const pagesBook = document.createElement("li");
-    const statusBook = document.createElement("li");
-    const deleteBook = document.createElement("button");
     const toggleBook = document.createElement("button");
-
+    const deleteBook = document.createElement("button");
     deleteBook.setAttribute("data-index", `${i}`);
+
     nameAuthor.innerHTML = array[i].author.toUpperCase();
     nameBook.innerHTML = array[i].bookname.toUpperCase();
     pagesBook.innerHTML = array[i].pages.toUpperCase();
     deleteBook.innerHTML = "DELETE";
     toggleBook.innerHTML = "Toggle";
-    if (array[i].status === true) {
-      statusBook.innerHTML = "yes";
+
+    if (array[i].status === "on" || array[i].status === true) {
+      toggleBook.innerHTML = "Read";
     } else {
-      statusBook.innerHTML = "no";
+      toggleBook.innerHTML = "Not read";
     }
+
     containerBook.appendChild(displayBook);
     displayBook.appendChild(nameAuthor);
     displayBook.appendChild(nameBook);
     displayBook.appendChild(pagesBook);
-    displayBook.appendChild(statusBook);
     displayBook.appendChild(deleteBook);
     displayBook.appendChild(toggleBook);
 
@@ -110,6 +111,6 @@ form.addEventListener("submit", (event) => {
   const author = authorInput.value;
   const book = bookInput.value;
   const pages = pagesInput.value;
-  const status = statusInput.value;
+  const status = statusInput.checked;
   addBookToLibrary(author, book, pages, status);
 });
