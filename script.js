@@ -19,6 +19,9 @@ window.onclick = function (event) {
 };
 // Modal ends
 
+// Prevent submit on form
+sendBtn.addEventListener("click", (e) => e.preventDefault());
+
 const myLibrary = [];
 
 function Book(author, bookname, pages, status) {
@@ -26,7 +29,6 @@ function Book(author, bookname, pages, status) {
   this.bookname = bookname;
   this.pages = pages;
   this.status = status;
-  // the constructor...
 }
 
 function removeAllChildNodes(parent) {
