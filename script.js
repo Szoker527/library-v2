@@ -65,21 +65,24 @@ function showLibrary(array) {
     nameAuthor.innerHTML = array[i].author.toUpperCase();
     nameBook.innerHTML = array[i].bookname.toUpperCase();
     pagesBook.innerHTML = array[i].pages.toUpperCase();
-    deleteBook.innerHTML = "DELETE";
+    deleteBook.innerHTML = "Delete";
     toggleBook.innerHTML = "Toggle";
+    deleteBook.classList.add("turn-red");
 
     if (array[i].status === "on" || array[i].status === true) {
       toggleBook.innerHTML = "Read";
+      toggleBook.classList.add("button-green");
     } else {
       toggleBook.innerHTML = "Not read";
+      toggleBook.classList.add("button-red");
     }
 
     containerBook.appendChild(displayBook);
     displayBook.appendChild(nameAuthor);
     displayBook.appendChild(nameBook);
     displayBook.appendChild(pagesBook);
-    displayBook.appendChild(deleteBook);
     displayBook.appendChild(toggleBook);
+    displayBook.appendChild(deleteBook);
 
     deleteBook.addEventListener("click", () => {
       const index = deleteBook.getAttribute("data-index");

@@ -16,12 +16,34 @@
     <div id="myModal" class="modal">
       <form class="modal-content" action="#" method="get" id="myForm">
         <span class="close">&times;</span>
-        <label for="author">Author Name:</label>
-        <input type="text" name="author" id="author" required />
-        <label for="book-name">Book Name:</label>
-        <input type="text" name="book-name" id="book-name" required />
-        <label for="book-pages">Amount of pages:</label>
-        <input type="number" name="book-pages" id="book-pages" required />
+        <label for="author"></label>
+        <input
+          type="text"
+          name="author"
+          id="author"
+          maxlength="20"
+          placeholder="Author name"
+          required
+        />
+        <label for="book-name"></label>
+        <input
+          type="text"
+          name="book-name"
+          id="book-name"
+          placeholder="Book name"
+          maxlength="20"
+          required
+        />
+        <label for="book-pages"></label>
+        <input
+          type="number"
+          name="book-pages"
+          id="book-pages"
+          placeholder="Number of pages"
+          min="0"
+          max="10000"
+          required
+        />
         <label for="book-status">Was it read?:</label>
         <input type="checkbox" name="book-status" id="book-status" />
         <button type="submit" id="submit-button">Submit</button>

@@ -13,9 +13,11 @@ body {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 100px 50px 1fr 100px;
+  grid-template-rows: 100px 100px 1fr 100px;
   font-family: "Roboto-Slab";
   font-weight: 400;
+  overflow: hidden;
+  background-color: #b8b8b8;
 }
 
 h1 {
@@ -32,12 +34,23 @@ button {
 }
 .top-button {
   text-align: center;
+  padding: 10px;
   grid-row: 2 / 3;
 }
 
 .top-button button {
+  font-size: 20px;
+  text-align: center;
   background-color: white;
-  padding: 10px 15px;
+  border-style: none;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 15px 25px;
+}
+
+.top-button button:hover {
+  background-color: black;
+  color: white;
 }
 
 /* Modal box settings */
@@ -95,10 +108,49 @@ button {
 .container {
   grid-row: 3 / 4;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: repeat(4, 1fr);
+  padding: 0 300px;
 }
 
 .container div {
+  display: flex;
+  flex-direction: column;
   list-style: none;
+  font-size: 20px;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+}
+
+.container > div > li + button {
+}
+
+.container button {
+  width: 60%;
+  padding: 5px;
+  border-radius: 10px;
+  border-style: none;
+  border: 2px solid black;
+}
+
+.turn-red {
+  background-color: white;
+}
+
+.turn-red:hover {
+  background-color: red;
+}
+
+.button-red {
+  background-color: red;
+}
+
+.button-green {
+  background-color: #03c03c;
 }
