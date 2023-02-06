@@ -13,10 +13,9 @@
     <div class="top-button">
       <button id="modal-button">Add Book!</button>
     </div>
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal modal-flex">
       <form class="modal-content" action="#" method="get" id="myForm">
         <span class="close">&times;</span>
-        <label for="author"></label>
         <input
           type="text"
           name="author"
@@ -25,7 +24,7 @@
           placeholder="Author name"
           required
         />
-        <label for="book-name"></label>
+        <br />
         <input
           type="text"
           name="book-name"
@@ -34,7 +33,7 @@
           maxlength="20"
           required
         />
-        <label for="book-pages"></label>
+        <br />
         <input
           type="number"
           name="book-pages"
@@ -44,9 +43,15 @@
           max="10000"
           required
         />
-        <label for="book-status">Was it read?:</label>
-        <input type="checkbox" name="book-status" id="book-status" />
-        <button type="submit" id="submit-button">Submit</button>
+        <br />
+        <label for="book-status" class="status"
+          >Was it read?:
+          <input type="checkbox" name="book-status" id="book-status" />
+        </label>
+        <br />
+        <div class="button-center">
+          <button type="submit" id="submit-button">Submit</button>
+        </div>
       </form>
     </div>
     <div class="container" id="displayBook"></div>

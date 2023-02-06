@@ -9,7 +9,7 @@ const statusInput = document.querySelector("#book-status");
 
 // Modal start
 modalBtn.onclick = function () {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 };
 
 span.onclick = function () {
@@ -88,25 +88,22 @@ function showLibrary(array) {
     deleteBook.addEventListener("click", () => {
       const index = deleteBook.getAttribute("data-index");
       myLibrary.splice(index, 1);
-      console.log(myLibrary);
       showLibrary(myLibrary);
     });
 
     toggleBook.addEventListener("click", () => {
       const index = deleteBook.getAttribute("data-index");
       myLibrary[index].swap();
-      console.log(myLibrary[index]);
       showLibrary(myLibrary);
     });
   }
 }
 
+// Creates object and adds to array
 function addBookToLibrary(author, book, pages, status) {
   const newBook = new Book(author, book, pages, status);
-  console.log(newBook.status);
   myLibrary.push(newBook);
   showLibrary(myLibrary);
-  console.log(myLibrary);
 }
 
 form.addEventListener("submit", (event) => {
