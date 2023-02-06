@@ -65,6 +65,7 @@ function showLibrary(array) {
     nameAuthor.innerHTML = array[i].author.toUpperCase();
     nameBook.innerHTML = array[i].bookname.toUpperCase();
     pagesBook.innerHTML = array[i].pages.toUpperCase();
+    pagesBook.innerHTML += " pages";
     deleteBook.innerHTML = "Delete";
     toggleBook.innerHTML = "Toggle";
     deleteBook.classList.add("turn-red");
