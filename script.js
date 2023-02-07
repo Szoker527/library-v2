@@ -25,9 +25,9 @@ window.onclick = function (event) {
 
 const myLibrary = [];
 
-function Book(author, bookname, pages, status) {
-  this.author = author;
+function Book(bookname, author, pages, status) {
   this.bookname = bookname;
+  this.author = author;
   this.pages = pages;
   this.status = status;
 }
@@ -62,8 +62,8 @@ function showLibrary(array) {
     const deleteBook = document.createElement("button");
     deleteBook.setAttribute("data-index", `${i}`);
 
-    nameAuthor.innerHTML = array[i].author.toUpperCase();
     nameBook.innerHTML = array[i].bookname.toUpperCase();
+    nameAuthor.innerHTML = array[i].author.toUpperCase();
     pagesBook.innerHTML = array[i].pages.toUpperCase();
     pagesBook.innerHTML += " pages";
     deleteBook.innerHTML = "Delete";
@@ -100,8 +100,8 @@ function showLibrary(array) {
 }
 
 // Creates object and adds to array
-function addBookToLibrary(author, book, pages, status) {
-  const newBook = new Book(author, book, pages, status);
+function addBookToLibrary(book, author, pages, status) {
+  const newBook = new Book(book, author, pages, status);
   myLibrary.push(newBook);
   showLibrary(myLibrary);
 }
