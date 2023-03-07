@@ -22,25 +22,25 @@ window.onclick = function (event) {
   }
 };
 // Modal ends
-
 const myLibrary = [];
 
-function Book(bookname, author, pages, status) {
-  this.bookname = bookname;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
+class Book {
+  constructor (bookname, author, pages, status) {  
+    this.bookname = bookname;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
 
-Book.prototype = {
   swap() {
     if (this.status === false) {
       this.status = true;
     } else {
       this.status = false;
     }
-  },
-};
+  }
+
+}
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
